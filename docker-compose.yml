@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  wiremock:
+    image: wiremock/wiremock:latest
+    ports:
+      - "3001:8080"
+    entrypoint: "java $JAVA_OPTS -cp /var/wiremock/lib/wiremock-jre8-standalone.jar:/var/wiremock/extensions/wiremock-webhooks-extension-2.35.0.jar com.github.tomakehurst.wiremock.standalone.WireMockServerRunner --global-response-templating --extensions org.wiremock.webhooks.Webhooks"
+    volumes:
+      - ./wiremock:/home/wiremock
+      - ./wiremock/extensions:/var/wiremock/extensions

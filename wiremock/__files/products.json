@@ -1,0 +1,5 @@
+[
+  {
+    "recebi": "{{{xPath request.body '/outer/inner/text()'}}}"
+  }
+]
